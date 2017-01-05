@@ -407,6 +407,7 @@ namespace StackExchange.Redis
                 case RedisCommand.INCRBY:
                 case RedisCommand.INCRBYFLOAT:
                 case RedisCommand.LINSERT:
+                case RedisCommand.LIINSERT:
                 case RedisCommand.LPOP:
                 case RedisCommand.LPUSH:
                 case RedisCommand.LPUSHX:
