@@ -68,6 +68,7 @@
         LASTSAVE,
         LINDEX,
         LINSERT,
+        LIINSERT,
         LLEN,
         LPOP,
         LPUSH,
