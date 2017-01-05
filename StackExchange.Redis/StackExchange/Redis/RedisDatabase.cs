@@ -635,6 +635,18 @@ namespace StackExchange.Redis
             var msg = Message.Create(Database, flags, RedisCommand.LINSERT, key, RedisLiterals.AFTER, pivot, value);
             return ExecuteAsync(msg, ResultProcessor.Int64);
         }
+        
+        public long ListInsertAfter(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            var msg = Message.Create(Database, flags, RedisCommand.LIINSERT, key, RedisLiterals.AFTER, index, value);
+            return ExecuteSync(msg, ResultProcessor.Int64);
+        }
+
+        public Task<long> ListInsertAfterAsync(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            var msg = Message.Create(Database, flags, RedisCommand.LIINSERT, key, RedisLiterals.AFTER, index, value);
+            return ExecuteAsync(msg, ResultProcessor.Int64);
+        }
 
         public long ListInsertBefore(RedisKey key, RedisValue pivot, RedisValue value, CommandFlags flags = CommandFlags.None)
         {
@@ -645,6 +657,18 @@ namespace StackExchange.Redis
         public Task<long> ListInsertBeforeAsync(RedisKey key, RedisValue pivot, RedisValue value, CommandFlags flags = CommandFlags.None)
         {
             var msg = Message.Create(Database, flags, RedisCommand.LINSERT, key, RedisLiterals.BEFORE, pivot, value);
+            return ExecuteAsync(msg, ResultProcessor.Int64);
+        }
+        
+        public long ListInsertBefore(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            var msg = Message.Create(Database, flags, RedisCommand.LIINSERT, key, RedisLiterals.BEFORE, index, value);
+            return ExecuteSync(msg, ResultProcessor.Int64);
+        }
+
+        public Task<long> ListInsertBeforeAsync(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            var msg = Message.Create(Database, flags, RedisCommand.LIINSERT, key, RedisLiterals.BEFORE, index, value);
             return ExecuteAsync(msg, ResultProcessor.Int64);
         }
 
