@@ -333,6 +333,22 @@ namespace StackExchange.Redis
         /// <returns>the length of the list after the insert operation, or -1 when the value pivot was not found.</returns>
         /// <remarks>http://redis.io/commands/linsert</remarks>
         long ListInsertBefore(RedisKey key, RedisValue pivot, RedisValue value, CommandFlags flags = CommandFlags.None);
+        
+        /// <summary>
+        /// Inserts value in the list stored at key either before or after the index.
+        /// When key does not exist, it is considered an empty list and no operation is performed.
+        /// </summary>
+        /// <returns>the length of the list after the insert operation, or -1 when the index is out of range.</returns>
+        /// <remarks>http://redis.io/commands/liinsert</remarks>
+        long ListInsertAfter(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None);
+
+        /// <summary>
+        /// Inserts value in the list stored at key either before or after the index.
+        /// When key does not exist, it is considered an empty list and no operation is performed.
+        /// </summary>
+        /// <returns>the length of the list after the insert operation, or -1 when the index is out of range.</returns>
+        /// <remarks>http://redis.io/commands/liinsert</remarks>
+        long ListInsertBefore(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None);
 
         /// <summary>
         /// Removes and returns the first element of the list stored at key.
