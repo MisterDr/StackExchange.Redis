@@ -223,6 +223,15 @@ namespace StackExchange.Redis.KeyspaceIsolation
         {
             return Inner.ListInsertBeforeAsync(ToInner(key), pivot, value, flags);
         }
+        public Task<long> ListInsertAfterAsync(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            return Inner.ListInsertAfterAsync(ToInner(key), index, value, flags);
+        }
+
+        public Task<long> ListInsertBeforeAsync(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            return Inner.ListInsertBeforeAsync(ToInner(key), index, value, flags);
+        }
 
         public Task<RedisValue> ListLeftPopAsync(RedisKey key, CommandFlags flags = CommandFlags.None)
         {

@@ -222,6 +222,16 @@ namespace StackExchange.Redis.KeyspaceIsolation
             return Inner.ListInsertBefore(ToInner(key), pivot, value, flags);
         }
 
+        public long ListInsertAfter(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            return Inner.ListInsertAfter(ToInner(key), index, value, flags);
+        }
+
+        public long ListInsertBefore(RedisKey key, int index, RedisValue value, CommandFlags flags = CommandFlags.None)
+        {
+            return Inner.ListInsertBefore(ToInner(key), index, value, flags);
+        }
+
         public RedisValue ListLeftPop(RedisKey key, CommandFlags flags = CommandFlags.None)
         {
             return Inner.ListLeftPop(ToInner(key), flags);
